@@ -1,6 +1,9 @@
 import pandas as pd  
 from sklearn.cluster import KMeans
 import warnings
+import pickle
+import matplotlib.pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay
 warnings.filterwarnings('ignore')      #prevents windows warning
 
 df=pd.read_csv('Mall_Customers.csv')
@@ -37,3 +40,11 @@ while True:
     elif cluster_id==4:
         print("CUSTOMER PERSONA  : Budget Conscious")
         print("MARKETING STRATEGY: Target with heavy discount campaigns and clearance sales.")
+
+with open('spam_model.pkl', 'wb') as f:
+    pickle.dump(model, f)
+with open('vectorizer.pkl', 'wb') as f:
+    pickle.dump(vecto, f)
+disp = ConfusionMatrixDisplay.from_estimator(model, X_test_tfidf, y_test, cmap='Blues')
+plt.title("Spam Classifier Confusion Matrix")
+plt.savefig('confusion_matrix.png', bbox_inches='tight')
