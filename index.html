@@ -44,7 +44,9 @@
     .score { font-size: 27px; font-weight: 800; letter-spacing: -.05em; color: #1e3a8a; }
     .result p { margin: 10px 0 0; color: #334155; font-size: 14px; line-height: 1.5; }
     
-    #plot-container { width: 100%; min-height: 290px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 11px; overflow: hidden; margin-top: 10px; }
+    #plot-container img, #plot-container svg, #plot-container div { 
+        max-width: 100% !important; 
+        height: auto !important; }   
     .small { color: #64748b; font-size: 12px; line-height: 1.55; margin: 17px 0 0; }
     @media (max-width: 760px) { main { padding-top: 48px; } .grid { grid-template-columns: 1fr; } .card { padding: 22px; } .intro { margin-bottom: 30px; } }
   </style>
@@ -139,8 +141,7 @@ try:
     X = seg_vars.get('X')
 
     # 4. DRAW THE MATPLOTLIB CHART IN THE RIGHT CARD
-    fig, ax = plt.subplots(figsize=(5, 3.5))
-    
+    fig, ax = plt.subplots(figsize=(4.5, 3.2))    
     scatter = ax.scatter(X['Annual Income (k$)'], X['Spending Score (1-100)'], 
                          c=global_model.labels_, cmap='coolwarm', s=30, alpha=0.9)
     
