@@ -76,7 +76,7 @@ The algorithm converged on the following five central points for each customer s
 * `seg.py`: The clustering training script and CLI prediction loop.
 * `cluster_centroids.csv`: The exported coordinates of the 5 cluster centers.
 * `dataset_sample.csv`: A sanitized sample of the input data used for training.
-* `image_b1d8c6.png`: The matplotlib scatter plot visualization.
+* `cluster_plot.png`: The matplotlib scatter plot visualization.
 * `index.html`: The PyScript Vercel web wrapper containing the interactive segmentation predictor.
 
 ## Reproduction Instructions
